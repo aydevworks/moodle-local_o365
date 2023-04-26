@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
 
-require_once($CFG->dirroot.'/lib/externallib.php');
+use core_external\external_single_structure;
 
 /**
  * Tests \local_o365\webservices\utils
@@ -422,7 +422,7 @@ class local_o365_webservices_utils_testcase extends \advanced_testcase {
      */
     public function test_get_assignment_return_info_schema() {
         $schema = \local_o365\webservices\utils::get_assignment_return_info_schema();
-        $this->assertTrue($schema instanceof \external_single_structure);
+        $this->assertTrue($schema instanceof external_single_structure);
         $this->assertArrayHasKey('data', $schema->keys);
     }
 

@@ -29,6 +29,10 @@ use \local_o365\webservices\exception as exception;
 
 defined('MOODLE_INTERNAL') || die();
 
+use core_external\external_multiple_structure;
+use core_external\external_single_structure;
+use core_external\external_value;
+
 /**
  * Webservices utilities.
  */
@@ -67,23 +71,23 @@ class utils {
     /**
      * Get the external structure schema when returning information about an assignment.
      *
-     * @return \external_single_structure The return data schema.
+     * @return external_single_structure The return data schema.
      */
     public static function get_assignment_return_info_schema() {
         $params = [
-            'data' => new \external_multiple_structure(
-                new \external_single_structure([
-                    'course' => new \external_value(PARAM_INT, 'course id'),
-                    'coursemodule' => new \external_value(PARAM_INT, 'coursemodule id'),
-                    'name' => new \external_value(PARAM_TEXT, 'name'),
-                    'intro' => new \external_value(PARAM_TEXT, 'intro'),
-                    'section' => new \external_value(PARAM_INT, 'section'),
-                    'visible' => new \external_value(PARAM_INT, 'visible'),
-                    'instance' => new \external_value(PARAM_INT, 'instance id'),
+            'data' => new external_multiple_structure(
+                new external_single_structure([
+                    'course' => new external_value(PARAM_INT, 'course id'),
+                    'coursemodule' => new external_value(PARAM_INT, 'coursemodule id'),
+                    'name' => new external_value(PARAM_TEXT, 'name'),
+                    'intro' => new external_value(PARAM_TEXT, 'intro'),
+                    'section' => new external_value(PARAM_INT, 'section'),
+                    'visible' => new external_value(PARAM_INT, 'visible'),
+                    'instance' => new external_value(PARAM_INT, 'instance id'),
                 ])
             ),
         ];
-        return new \external_single_structure($params);
+        return new external_single_structure($params);
     }
 
     /**

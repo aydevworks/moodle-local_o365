@@ -33,24 +33,29 @@ global $CFG;
 
 require_once($CFG->dirroot.'/course/modlib.php');
 
+use core_external\external_api;
+use core_external\external_function_parameters;
+use core_external\external_single_structure;
+use core_external\external_value;
+
 /**
  * Update assignment API class.
  */
-class update_onenoteassignment extends \external_api {
+class update_onenoteassignment extends external_api {
     /**
      * Returns description of method parameters.
      *
      * @return external_function_parameters The parameters object for this webservice method.
      */
     public static function assignment_update_parameters() {
-        return new \external_function_parameters([
-            'data' => new \external_single_structure([
-                'coursemodule' => new \external_value(PARAM_INT, 'course module id'),
-                'course' => new \external_value(PARAM_INT, 'course id'),
-                'name' => new \external_value(PARAM_TEXT, 'name', VALUE_DEFAULT, null),
-                'intro' => new \external_value(PARAM_TEXT, 'intro', VALUE_DEFAULT, null),
-                'section' => new \external_value(PARAM_INT, 'section', VALUE_DEFAULT, null),
-                'visible' => new \external_value(PARAM_BOOL, 'visible', VALUE_DEFAULT, null),
+        return new external_function_parameters([
+            'data' => new external_single_structure([
+                'coursemodule' => new external_value(PARAM_INT, 'course module id'),
+                'course' => new external_value(PARAM_INT, 'course id'),
+                'name' => new external_value(PARAM_TEXT, 'name', VALUE_DEFAULT, null),
+                'intro' => new external_value(PARAM_TEXT, 'intro', VALUE_DEFAULT, null),
+                'section' => new external_value(PARAM_INT, 'section', VALUE_DEFAULT, null),
+                'visible' => new external_value(PARAM_BOOL, 'visible', VALUE_DEFAULT, null),
             ])
         ]);
     }
