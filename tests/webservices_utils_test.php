@@ -27,13 +27,12 @@ defined('MOODLE_INTERNAL') || die();
 
 global $CFG;
 
-require_once($CFG->dirroot.'/lib/externallib.php');
-
 /**
  * Tests \local_o365\webservices\utils
  *
  * @group local_o365
  * @group office365
+ * @runTestsInSeparateProcesses
  */
 class local_o365_webservices_utils_testcase extends \advanced_testcase {
 
@@ -41,7 +40,9 @@ class local_o365_webservices_utils_testcase extends \advanced_testcase {
      * Perform setup before every test. This tells Moodle's phpunit to reset the database after every test.
      */
     protected function setUp() : void {
+        global $CFG;
         parent::setUp();
+        require_once($CFG->dirroot.'/lib/externallib.php');
         $this->resetAfterTest(true);
     }
 
