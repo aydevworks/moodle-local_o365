@@ -32,6 +32,7 @@ require_once($CFG->dirroot.'/lib/externallib.php');
 /**
  * Tests \local_o365\webservices\utils
  *
+ * @runTestsInSeparateProcesses
  * @group local_o365
  * @group office365
  */
